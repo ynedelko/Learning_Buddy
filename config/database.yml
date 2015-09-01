@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: learning_buddy_development
+
+test:
+  adapter: postgresql
+  database: learning_buddy_test
