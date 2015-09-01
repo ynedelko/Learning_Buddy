@@ -19,6 +19,23 @@ get('/teachers') do
   erb(:teacher_welcome)
 end
 
+
+get('/teacher-admin/') do
+    @lessons = Lesson.all
+    @students = Student.all
+    erb(:teacher_admin)
+end
+
+post("/students/new") do
+    new_student = params.fetch("name")
+    Student.create({:name => new_student})
+    redirect('/teacher-admin/')
+end
+
+get('/teacher-review/') do
+    @lessons = Lesson.all
+    erb(:teacher_review)
+
 post('/students') do
   student = Student.find(params['student_id'].to_i)
   pair = Student.find(params['pair_id'].to_i)
