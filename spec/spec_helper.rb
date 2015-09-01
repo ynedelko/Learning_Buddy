@@ -6,6 +6,7 @@ set(:root, Dir.pwd())
 
 require("lesson")
 require("student")
+require("feedback")
 
 
 RSpec.configure do |config|
@@ -15,6 +16,9 @@ RSpec.configure do |config|
     end
     Student.all().each() do |student|
       student.destroy()
+    end
+    Feedback.all().each() do |feedback|
+      feedback.destroy()
     end
   end
 end

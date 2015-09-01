@@ -11,29 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901175616) do
+ActiveRecord::Schema.define(version: 20150901183759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer "lesson_id"
+    t.integer "student_id"
+    t.integer "pair_id"
+    t.integer "mood"
+    t.string  "mood_causes"
+    t.string  "comment"
+  end
 
   create_table "lessons", force: :cascade do |t|
     t.string   "name"
     t.string   "goals"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "lessons_students", force: :cascade do |t|
-    t.integer  "lesson_id"
-    t.integer  "student_id"
     t.datetime "day"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
-    t.string   "pair"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,7 +1,7 @@
 require("spec_helper")
 
 describe(Student) do
-  describe("#lessons") do
-    it { should have_and_belong_to_many(:lessons) }
+  describe("#feedbacks") do
+    it { should have_many(:feedbacks) }
   end
 end
