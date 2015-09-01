@@ -13,7 +13,7 @@
       <% end %>
     </select>
 
-    <h3>Please select your pairs name</h3>
+    <h3>Please select your pair's name</h3>
     <select id='pair_id' name='pair_id' type='text'>
         <% @students.each() do |student| %>
         <option value="<%= student.id()%>"> <%= student.name() %> </option>

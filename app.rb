@@ -35,6 +35,7 @@ end
 get('/teacher-review/') do
     @lessons = Lesson.all
     erb(:teacher_review)
+end
 
 post('/students') do
   student = Student.find(params['student_id'].to_i)
