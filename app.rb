@@ -15,6 +15,17 @@ get('/students') do
   erb(:students)
 end
 
-get('/teacher_welcome') do
+get('/teachers') do
   erb(:teacher_welcome)
+end
+
+get('/teacher-admin/') do
+    @lessons = Lesson.all
+    @students = Student.all
+    erb(:teacher_admin)
+end
+
+get('/teacher-review/') do
+    @lessons = Lesson.all
+    erb(:teacher_review)
 end
