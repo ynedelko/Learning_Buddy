@@ -8,3 +8,9 @@
         <% else %>
         <h3>Your class roster is empty. Add students below. </h3>
     <% end %>
+
+
+<form action="/students/new" method="post">
+    <input name="name" placeholder="Student Name" type="text">
+    <button type="submit" class="btn-default">Add Student</button>
+</form>

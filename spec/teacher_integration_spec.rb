@@ -6,4 +6,10 @@ describe("the route a teacher takes", {:type => :feature} ) do
         visit("/teacher-admin/")
         expect(page).to have_content(test_student.name())
     end
+    it("adds a new student to the roster") do
+        visit("/teacher-admin/")
+        fill_in('name', :with => "Yan Polski")
+        click_button('Add Student')
+        expect(page).to have_content("Yan Polski")
+    end
 end

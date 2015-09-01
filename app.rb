@@ -25,6 +25,12 @@ get('/teacher-admin/') do
     erb(:teacher_admin)
 end
 
+post("/students/new") do
+    new_student = params.fetch("name")
+    Student.create({:name => new_student})
+    redirect('/teacher-admin/')
+end
+
 get('/teacher-review/') do
     @lessons = Lesson.all
     erb(:teacher_review)
