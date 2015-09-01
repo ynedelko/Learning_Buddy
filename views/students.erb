@@ -1,0 +1,32 @@
+<div class='home-btn'>
+<a href="/" class="btn btn-link">Home</a>
+</div>
+
+<h1>Students</h1>
+
+<form action="index.html" method="post">
+
+  <h3>Please select your name:</h3>
+  <select id='student_id' name='student_id' type='text'>
+      <% @students.each() do |student| %>
+      <option value="<%= student.id()%>"> <%= student.name() %> </option>
+      <% end %>
+    </select>
+
+    <h3>Please select your pairs name</h3>
+    <select id='pair_id' name='pair_id' type='text'>
+        <% @students.each() do |student| %>
+        <option value="<%= student.id()%>"> <%= student.name() %> </option>
+        <% end %>
+      </select>
+
+  <h3>Please select the Lesson you want to leave feedback on</h3>
+  <select id='lesson_id' name='lesson_id' type='text'>
+      <% @lessons.each() do |lesson| %>
+      <option value="<%= lesson.id()%>"> <%= lesson.name() %> </option>
+      <% end %>
+    </select>
+</form>
+<br>
+
+<button name="submit" class= "btn btn-success">Continue</button>

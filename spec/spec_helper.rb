@@ -23,7 +23,7 @@ RSpec.configure do |config|
   end
 end
 
-# require('capybara/rspec')
-# Capybara.app = Sinatra::Application
-# set(:show_exceptions, false)
-# require('./app')
+require('capybara/rspec')
+Capybara.app = Sinatra::Application
+set(:show_exceptions, false)
+require('./app')
