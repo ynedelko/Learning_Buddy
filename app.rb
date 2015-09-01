@@ -15,6 +15,6 @@ get('/students') do
   erb(:students)
 end
 
-get('/teachers') do
-  erb(:teachers)
+get('/teacher_welcome') do
+  erb(:teacher_welcome)
 end
