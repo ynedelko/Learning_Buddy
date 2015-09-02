@@ -123,7 +123,7 @@ get('/feedback_final') do
   erb(:feedback_final)
 end
 
-post('/feeback_final') do
+post('/feedback_final') do
   @feedback = Feedback.find(params['id'].to_i)
   comment = params['comment']
   @feedback.update({comment: comment})
