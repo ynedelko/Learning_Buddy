@@ -1,9 +1,7 @@
 require("bundler/setup")
 Bundler.require(:default)
-require('./lib/feedback')
-require('./lib/lesson')
-require('./lib/student')
-require('pry')
+
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get('/') do
   erb(:index)
