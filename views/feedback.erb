@@ -1,15 +1,16 @@
 <h1>Welcome <%= @student.name%>!</h1>
 <h2>Thanks for checking in today!</h2>
 
+<div class='smileys'>
 <a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/sad">
-  <img src="sad_face.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+  <img src="/images/sad_face.jpg" alt="HTML tutorial" style="width:100px;height:100px;border:10px;">
 </a>
 
 <a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/neutral">
-  <img src="neutral_face.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+  <img src="/images/neutral_face.jpg" alt="HTML tutorial" style="width:100px;height:100px;border:10px;">
 </a>
-
 
 <a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/happy">
-  <img src="happy_face.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+  <img src="/images/happy_face.jpg" alt="HTML tutorial" style="width:100px;height:100px;border:10px;">
 </a>
+</div>

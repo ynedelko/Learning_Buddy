@@ -1,0 +1,6 @@
+<h1>Seems like you're feeling pretty neutral about class today.</h1>
+<h3>We would love to hear why! Please let us know below:</h3>
+
+<form action='/feedback_mood/<%=@feedback.id%>/students/<%=@student.id%>' method='post'>
+  <%= erb(:form) %>
+</form>

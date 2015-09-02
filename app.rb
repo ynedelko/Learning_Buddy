@@ -1,5 +1,6 @@
 require("bundler/setup")
 Bundler.require(:default)
+require('pry')
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
@@ -42,17 +43,42 @@ get('/teacher-review/') do
 end
 
 post('/students') do
-  student = Student.find(params['student_id'].to_i)
+  @student = Student.find(params['student_id'].to_i)
   pair = Student.find(params['pair_id'].to_i)
-  lesson = lesson.find(params['lesson_id'].to_i)
-
-  feedback = Feedback.create({student_id: student.id, pair_id: pair.id, lesson_id: lesson.id})
-  redirect('/feedbacks/#{feedback.id}/students/#{student.id}')
+  lesson = Lesson.find(params['lesson_id'].to_i)
+  @feedback = Feedback.create({student_id: @student.id, pair_id: pair.id, lesson_id: lesson.id})
+  erb(:feedback)
 end
 
-get('/feedbacks/:id/students/:id') do
+get('/feedbacks/:id/students/:id/sad') do
   @feedback = Feedback.find(params['id'].to_i)
   @student = Student.find(params['id'].to_i)
+  @feedback.update({mood: 1})
+  erb(:feedback_sad)
+end
 
-  erb(:feedback)
+
+get('/feedbacks/:id/students/:id/neutral') do
+  @feedback = Feedback.find(params['id'].to_i)
+  @student = Student.find(params['id'].to_i)
+  @feedback.update({mood: 2})
+  erb(:feedback_neutral)
+end
+
+
+get('/feedbacks/:id/students/:id/happy') do
+  @feedback = Feedback.find(params['id'].to_i)
+  @student = Student.find(params['id'].to_i)
+  @feedback.update({mood: 3})
+  erb(:feedback_happy)
+end
+
+post('/feedback_mood/:id/students/:id') do
+  @feedback = Feedback.find(params['id'].to_i)
+  @student = Student.find(params['id'].to_i)
+  curriculum = params['Curriculum']
+  pair = params['Pair']
+  life = params['Life']
+  @feedback.update({mood_cause: [curriculum, pair, life]})
+  binding.pry
 end
