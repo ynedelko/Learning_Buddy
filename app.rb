@@ -48,15 +48,11 @@ delete('/students/:id') do
     redirect('/teacher-admin/')
 end
 
-############
-
 post("/lessons/new") do
     new_lesson = params.fetch("lesson_name")
     Lesson.create({:name => new_lesson})
     redirect('/teacher-admin/')
 end
-
-
 
 get('/lessons/:id') do
     @lesson = Lesson.find(params.fetch("id").to_i)
@@ -76,20 +72,6 @@ delete('/lessons/:id') do
     redirect('/teacher-admin/')
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-##############
 get('/teacher-review/') do
     @lessons = Lesson.all
     erb(:teacher_review)
