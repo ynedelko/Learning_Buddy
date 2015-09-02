@@ -2,6 +2,10 @@
 <a href="/" class="btn btn-link">Home</a>
 </div>
 <h1>Class Roster</h1>
+<form action="/students/new" method="post">
+    <input name="name" placeholder="Student Name" type="text">
+    <button type="submit" class="btn-default">Add Student</button>
+</form>
     <% if @students.any? %>
         <% @students.each do |student| %>
             <ul>
@@ -9,11 +13,20 @@
             </ul>
         <% end %>
         <% else %>
-        <h3>Your class roster is empty. Add students below. </h3>
+        <h3>Your class roster is empty, please add a student. </h3>
     <% end %>
 
-
-<form action="/students/new" method="post">
-    <input name="name" placeholder="Student Name" type="text">
-    <button type="submit" class="btn-default">Add Student</button>
-</form>
+    <h1>Lessons</h1>
+    <form action="/lessons/new" method="post">
+        <input name="lesson_name" placeholder="Lesson Title" type="text">
+        <button type="submit" class="btn-default">Add Lesson</button>
+    </form>
+        <% if @lessons.any? %>
+            <% @lessons.each do |lesson| %>
+                <ul>
+                    <li><%= lesson.name() %> </li>
+                </ul>
+            <% end %>
+            <% else %>
+            <h3>There are no lessons yet, please add one.</h3>
+        <% end %>
