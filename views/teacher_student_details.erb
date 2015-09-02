@@ -1,0 +1,14 @@
+<h1><%= @student.name %> </h1>
+
+<h3> Edit Student Name: </h3>
+
+<form action="/students/<%= @student.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <input name="name" type="text">
+    <button type="submit" class="btn btn-info btn-xs">Rename <%=@student.name %></button>
+</form>
+<br>
+<form action="/students/<%= @student.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-danger btn-xs">Delete <%=@student.name %></button>
+</form>
