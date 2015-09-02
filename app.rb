@@ -76,21 +76,14 @@ end
 ###########
 get('/teacher-analytics') do
     @lesson = nil
-    # @students = @lesson.students
     @lessons = Lesson.all
-    @feedbacks = Feedback.all
     erb(:teacher_analytics)
 end
 
 post('/analytics/lessons') do
     @lessons = Lesson.all()
     @lesson = Lesson.find(params['lesson_id'].to_i)
-    @found_feedback = nil
-    student.feedbacks.each do |feedback|
-        if feedback.lesson.id == @lesson.id
-            @found_feedback = feedback
-        end
-    end
+
     erb(:teacher_analytics)
 end
 ###########
@@ -99,7 +92,7 @@ post('/students') do
   @student = Student.find(params['student_id'].to_i)
   pair = Student.find(params['pair_id'].to_i)
   lesson = Lesson.find(params['lesson_id'].to_i)
-  @feedback = Feedback.create({student_id: @student.id, pair_id: pair.id, lesson_id: lesson.id, id: nil})
+  @feedback = Feedback.create({student_id: @student.id, pair_id: pair.id, lesson_id: lesson.id})
   erb(:feedback)
 end
 

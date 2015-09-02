@@ -1,0 +1,6 @@
+@mood = 1
+student.feedbacks.each do |mood|
+    if mood.lesson.id == @lesson.id
+        @mood = mood
+    end
+end
