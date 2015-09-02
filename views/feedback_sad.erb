@@ -1,0 +1,7 @@
+<h1>Sorry to hear you had a bad day.</h1>
+<h3>We think you are doing an awesome job! Keep in mind that these activities are hard so be easy on yourself.
+  <br>Please let us know how we can make your "not so good day" better:</h3>
+
+<form action='/feedback_mood/<%=@feedback.id%>/students/<%=@student.id%>' method='post'>
+  <%= erb(:form) %>
+</form>
