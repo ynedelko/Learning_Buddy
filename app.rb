@@ -76,6 +76,9 @@ end
 ###########
 get('/teacher-analytics') do
     @lessons = Lesson.all
+
+
+
     @feedback = Feedback.all
     erb(:teacher_analytics)
 end
