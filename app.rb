@@ -80,5 +80,16 @@ post('/feedback_mood/:id/students/:id') do
   pair = params['Pair']
   life = params['Life']
   @feedback.update({mood_cause: [curriculum, pair, life]})
-  binding.pry
+  erb(:comment)
+end
+
+get('/feedback_final') do
+  erb(:feedback_final)
+end
+
+post('/feeback_final') do
+  @feedback = Feedback.find(params['id'].to_i)
+  comment = params['comment']
+  @feedback.update({comment: comment})
+  erb(:feedback_final)
 end
