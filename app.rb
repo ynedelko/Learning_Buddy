@@ -73,9 +73,9 @@ delete('/lessons/:id') do
     redirect('/teacher-admin/')
 end
 
-get('/teacher-review/') do
+get('/teacher-analytics/') do
     @lessons = Lesson.all
-    erb(:teacher_review)
+    erb(:teacher_analytics)
 end
 
 post('/students') do
