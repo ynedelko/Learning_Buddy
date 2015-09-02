@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902161534) do
+ActiveRecord::Schema.define(version: 20150902220922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 20150902161534) do
     t.integer "mood"
     t.string  "comment"
     t.string  "mood_cause"
+    t.integer "sad_count"
+    t.integer "neutral_count"
+    t.integer "happy_count"
+    t.integer "total"
   end
 
   create_table "lessons", force: :cascade do |t|

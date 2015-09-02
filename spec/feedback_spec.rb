@@ -7,4 +7,5 @@ describe(Feedback) do
   describe("#lesson") do
     it { should belong_to(:lesson) }
   end
+
 end

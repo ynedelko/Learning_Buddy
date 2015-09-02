@@ -6,3 +6,54 @@
 <a href="/teacher-admin/" class="btn btn-success btn-large">ADMIN</a>
 
 <a href="/teacher-review/" class="btn btn-success btn-large">CLASS REVIEW</a>
+
+
+<script charset="utf-8">
+  $(function () {
+
+    $(document).ready(function () {
+
+        // Build the chart
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'General Mood'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: "Class Temperature",
+                colorByPoint: true,
+                data: [{
+                    name: "Sad",
+                    y: 56.33
+                }, {
+                    name: "Neutral",
+                    y: 33.29,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: "Happy",
+                    y: 10.38
+                }]
+            }]
+        });
+    });
+});
+</script>

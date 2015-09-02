@@ -14,6 +14,15 @@ get('/students') do
   erb(:students)
 end
 
+post('/students') do
+  @student = Student.find(params['student_id'].to_i)
+  pair = Student.find(params['pair_id'].to_i)
+  lesson = Lesson.find(params['lesson_id'].to_i)
+  @feedback = Feedback.create({student_id: @student.id, pair_id: pair.id, lesson_id: lesson.id})
+  binding.pry
+  erb(:feedback)
+end
+
 get('/teachers') do
   erb(:teacher_welcome)
 end
@@ -37,14 +46,14 @@ get('/students/:id') do
 end
 
 patch('/students/:id') do
-    @student =      Student.find(params.fetch("id").to_i)
+    @student = Student.find(params.fetch("id").to_i)
     new_name = params.fetch("name")
     @student.update({:name => new_name})
     erb(:teacher_student_details)
 end
 
 delete('/students/:id') do
-    @student =      Student.find(params.fetch("id").to_i)
+    @student = Student.find(params.fetch("id").to_i)
     @student.destroy
     redirect('/teacher-admin/')
 end
@@ -78,13 +87,7 @@ get('/teacher-review/') do
     erb(:teacher_review)
 end
 
-post('/students') do
-  @student = Student.find(params['student_id'].to_i)
-  pair = Student.find(params['pair_id'].to_i)
-  lesson = Lesson.find(params['lesson_id'].to_i)
-  @feedback = Feedback.create({student_id: @student.id, pair_id: pair.id, lesson_id: lesson.id})
-  erb(:feedback)
-end
+
 
 get('/feedbacks/:id/students/:id/sad') do
   @feedback = Feedback.find(params['id'].to_i)
@@ -93,14 +96,12 @@ get('/feedbacks/:id/students/:id/sad') do
   erb(:feedback_sad)
 end
 
-
 get('/feedbacks/:id/students/:id/neutral') do
   @feedback = Feedback.find(params['id'].to_i)
   @student = Student.find(params['id'].to_i)
   @feedback.update({mood: 2})
   erb(:feedback_neutral)
 end
-
 
 get('/feedbacks/:id/students/:id/happy') do
   @feedback = Feedback.find(params['id'].to_i)
