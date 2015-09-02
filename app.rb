@@ -31,19 +31,19 @@ post("/students/new") do
 end
 
 get('/students/:id') do
-    @student =      Student.find(params.fetch("id").to_i)
+    @student = Student.find(params.fetch("id").to_i)
     erb(:teacher_student_details)
 end
 
 patch('/students/:id') do
-    @student =      Student.find(params.fetch("id").to_i)
+    @student = Student.find(params.fetch("id").to_i)
     new_name = params.fetch("name")
     @student.update({:name => new_name})
     erb(:teacher_student_details)
 end
 
 delete('/students/:id') do
-    @student =      Student.find(params.fetch("id").to_i)
+    @student = Student.find(params.fetch("id").to_i)
     @student.destroy
     redirect('/teacher-admin/')
 end
