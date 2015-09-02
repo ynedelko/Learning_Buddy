@@ -9,7 +9,7 @@
     <% if @students.any? %>
         <% @students.each do |student| %>
             <ul>
-                <li><%= student.name() %> </li>
+                <li><a href="/students/<%= student.id %>"><%= student.name() %></a> </li>
             </ul>
         <% end %>
         <% else %>
@@ -24,7 +24,7 @@
         <% if @lessons.any? %>
             <% @lessons.each do |lesson| %>
                 <ul>
-                    <li><%= lesson.name() %> </li>
+                    <li><a href="/lessons/<%= lesson.id %>"><%= lesson.name() %></a> </li>
                 </ul>
             <% end %>
             <% else %>
