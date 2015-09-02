@@ -1,15 +1,17 @@
 <h1>Would you like to elaborate?</h1>
 
 
-<a href="/feedback_final"></a><button>No Thanks!</button>
-  <button >Submit!</button>
+<a href="/feedback_final" class="btn btn-primary btn-xs">No Thanks!</a>
 
-
+<br>
+<br>
+<button id="add_comment" class="btn btn-primary btn-lg">Yes!</button>
+<div id="comment">
+</div>
+<br>
 <form action="/feedback_final" method="post">
   <input type="hidden" name="id" value="<%=@feedback.id%>">
-  <button id="add_comment">Yes!</button>
-  <div id="comment">
-  </div>
+  <button class="btn btn-primary btn-lg">Submit!</button>
 </form>
 
 
