@@ -1,1 +1,15 @@
-<h1>student name and welcome</h1>
+<h1>Welcome <%= @student.name%>!</h1>
+<h2>Thanks for checking in today!</h2>
+
+<a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/sad">
+  <img src="sad_face.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+</a>
+
+<a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/neutral">
+  <img src="neutral_face.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+</a>
+
+
+<a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/happy">
+  <img src="happy_face.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+</a>

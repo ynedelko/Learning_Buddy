@@ -41,10 +41,12 @@ post('/students') do
   lesson = lesson.find(params['lesson_id'].to_i)
 
   feedback = Feedback.create({student_id: student.id, pair_id: pair.id, lesson_id: lesson.id})
-  redirect('/feedbacks/#{feedback.id}')
+  redirect('/feedbacks/#{feedback.id}/students/#{student.id}')
 end
 
-get('/feedbacks/:id') do
+get('/feedbacks/:id/students/:id') do
   @feedback = Feedback.find(params['id'].to_i)
+  @student = Student.find(params['id'].to_i)
+
   erb(:feedback)
 end
