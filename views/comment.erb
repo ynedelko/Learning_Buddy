@@ -1,0 +1,24 @@
+<h1>Would you like to elaborate?</h1>
+
+
+<a href="/feedback_final"></a><button>No Thanks!</button>
+  <button >Submit!</button>
+
+
+<form action="/feedback_final" method="post">
+  <input type="hidden" name="id" value="<%=@feedback.id%>">
+  <button id="add_comment">Yes!</button>
+  <div id="comment">
+  </div>
+</form>
+
+
+<script>
+$(document).ready(function(){
+  html_first = '<input type="text" name="comment" class="form-control" ';
+  html_last = '"  placeholer="e.g. Write comment here">';
+  $('#add_comment').click(function(){
+    $("#comment").append(html_first + html_last);
+  });
+});
+</script>
