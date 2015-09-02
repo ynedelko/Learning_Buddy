@@ -31,4 +31,20 @@ describe("the route a teacher takes", {:type => :feature} ) do
         click_button("Delete #{test_student.name}")
         expect(page).to have_no_content("Yan Polski")
     end
+
+
+
+    it("updates a lesson's name") do
+        test_lesson = Lesson.create({:name => "Patience"})
+        visit("/lessons/#{test_lesson.id()}")
+        fill_in("name", :with => "Assertiveness")
+        click_button("Retitle #{test_lesson.name}")
+        expect(page).to have_content("Assertiveness")
+    end
+    it("deletes a lesson") do
+        test_lesson = Lesson.create({:name => "Peace of Mind"})
+        visit("/lessons/#{test_lesson.id()}")
+        click_button("Delete #{test_lesson.name}")
+        expect(page).to have_no_content("Peace of Mind")
+    end
 end

@@ -1,0 +1,14 @@
+<h1><%= @lesson.name %> </h1>
+
+<h3> Edit Lesson: </h3>
+
+<form action="/lessons/<%= @lesson.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <input name="name" type="text">
+    <button type="submit" class="btn btn-info btn-xs">Retitle <%=@lesson.name %></button>
+</form>
+<br>
+<form action="/lessons/<%= @lesson.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-danger btn-xs">Delete <%=@lesson.name %></button>
+</form>

@@ -48,12 +48,48 @@ delete('/students/:id') do
     redirect('/teacher-admin/')
 end
 
+############
+
 post("/lessons/new") do
     new_lesson = params.fetch("lesson_name")
     Lesson.create({:name => new_lesson})
     redirect('/teacher-admin/')
 end
 
+
+
+get('/lessons/:id') do
+    @lesson = Lesson.find(params.fetch("id").to_i)
+    erb(:teacher_lesson_details)
+end
+
+patch('/lessons/:id') do
+    @lesson = Lesson.find(params.fetch("id").to_i)
+    new_name = params.fetch("name")
+    @lesson.update({:name => new_name})
+    erb(:teacher_lesson_details)
+end
+
+delete('/lessons/:id') do
+    @lesson = Lesson.find(params.fetch("id").to_i)
+    @lesson.destroy
+    redirect('/teacher-admin/')
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############
 get('/teacher-review/') do
     @lessons = Lesson.all
     erb(:teacher_review)
