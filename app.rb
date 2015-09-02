@@ -73,10 +73,19 @@ delete('/lessons/:id') do
     redirect('/teacher-admin/')
 end
 
-get('/teacher-analytics/') do
+###########
+get('/teacher-analytics') do
     @lessons = Lesson.all
+    @feedback = Feedback.all
     erb(:teacher_analytics)
 end
+
+post('/analytics/lessons') do
+    @lessons = Lesson.all()
+    @lesson = Lesson.find(params['lesson_id'].to_i)
+    erb(:teacher_analytics)
+end
+###########
 
 post('/students') do
   @student = Student.find(params['student_id'].to_i)
