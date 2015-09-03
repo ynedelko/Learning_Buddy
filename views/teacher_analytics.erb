@@ -20,9 +20,9 @@
 
 <% if @lesson != nil %>
     <%= @lesson.name %>
-    <% @lesson.students.each do |student| %>
+    <% @lesson.feedbacks.each do |feedback| %>
         <ul>
-            <li><%= student.name %></li>
+            <li><%= feedback.student.name  %><%= feedback.mood %><%= feedback.mood_cause %><%=feedback.comment %></li>
         </ul>
 
         <% end %>
