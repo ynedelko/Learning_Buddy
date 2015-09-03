@@ -1,17 +1,21 @@
-<div class='home-btn'>
-<a href="/" class="btn btn-link">Home</a> <a href='/teacher-admin/' class="btn btn-link">Teacher Admin</a>
-</div>
+<div class="jumbotron">
+  <center>
+    <img src="/images/lesson.jpg" style="width:100px;height:100px";>
 <h1><%= @lesson.name %> </h1>
-
-<h3> Edit Lesson: </h3>
 
 <form action="/lessons/<%= @lesson.id %>" method="post">
     <input name="_method" type="hidden" value="patch">
     <input name="name" type="text">
-    <button type="submit" class="btn btn-info btn-xs">Retitle <%=@lesson.name %></button>
+    <button type="submit" class="btn btn-primary btn-xs">retitle</button>
 </form>
 <br>
 <form action="/lessons/<%= @lesson.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit" class="btn btn-danger btn-xs">Delete <%=@lesson.name %></button>
+    <button type="submit" class="btn btn-default btn-lg">delete</button>
 </form>
+<br>
+<p>
+<a href="/" class="btn btn-link">home</a> | <a href='/teacher-admin/' class="btn btn-link">administration</a>
+</p>
+</center>
+</div>
