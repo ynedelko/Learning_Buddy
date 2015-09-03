@@ -1,0 +1,32 @@
+<div class='home-btn'>
+<a href="/" class="btn btn-link">Home</a> <a href='/teacher-admin/' class="btn btn-link">Teacher Admin</a>
+</div>
+
+<h1>Class Analytics</h1>
+
+<form action="/analytics/lessons" method="post">
+
+    <h3>Please select a Lesson</h3>
+    <select id='lesson_id' name='lesson_id' type='text'>
+        <% @lessons.each() do |lesson| %>
+        <option value="<%= lesson.id()%>"> <%= lesson.name() %> </option>
+        <% end %>
+      </select>
+      <br>
+      <br>
+      <button name="submit" class= "btn btn-success">See Feedback</button>
+
+</form>
+
+<% if @lesson != nil %>
+    <%= @lesson.name %>
+    <% @lesson.feedbacks.each do |feedback| %>
+        <ul>
+            <li><%= feedback.student.name  %><%= feedback.mood %><%= feedback.mood_cause %><%=feedback.comment %></li>
+        </ul>
+
+        <% end %>
+
+<% else %>
+    <h3> Select a lesson you would like to see feedback on </h3>
+<% end %>
