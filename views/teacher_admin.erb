@@ -1,10 +1,12 @@
-<div class='home-btn'>
-<a href="/" class="btn btn-link">Home</a> <a href="/teachers" class="btn btn-link">Teacher Page</a>
-</div>
-<h1>Class Roster</h1>
+
+<div class ="row">
+  <div class=col-lg-2>
+  </div>
+  <div class="col-lg-4">
+<h1>roster</h1>
 <form action="/students/new" method="post">
-    <input name="name" placeholder="Student Name" type="text">
-    <button type="submit" class="btn-default">Add Student</button>
+    <input name="name" placeholder="name" type="text">
+    <button type="submit" class="btn-default">add student</button>
 </form>
     <% if @students.any? %>
         <% @students.each do |student| %>
@@ -15,11 +17,12 @@
         <% else %>
         <h3>Your class roster is empty, please add a student. </h3>
     <% end %>
-
-    <h1>Lessons</h1>
+</div>
+<div class="col-lg-4">
+    <h1>lessons</h1>
     <form action="/lessons/new" method="post">
-        <input name="lesson_name" placeholder="Lesson Title" type="text">
-        <button type="submit" class="btn-default">Add Lesson</button>
+        <input name="lesson_name" placeholder="title" type="text">
+        <button type="submit" class="btn-default">add lesson</button>
     </form>
         <% if @lessons.any? %>
             <% @lessons.each do |lesson| %>
@@ -30,3 +33,16 @@
             <% else %>
             <h3>There are no lessons yet, please add one.</h3>
         <% end %>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+
+
+<div class='home-btn'>
+<center>
+<p>
+<a href="/" class="btn btn-link">home</a> | <a href="/teachers" class="btn btn-link">teacher page</a>
+</p>
+</center>
+</div>

@@ -25,7 +25,7 @@
       <tr>
         <th>name</th>
         <th>pair</th>
-        <th>mood (1:sad - 3:happy)</th>
+        <th>mood</th>
         <th>feedback</th>
         <th>comments</th>
       </tr>
@@ -39,19 +39,21 @@
           <tr>
             <td><%= feedback.student.name  %></td>
             <td><%= @pair %></td>
-            <td><%= feedback.mood %></td>
 
-                <% if feedback.mood_cause != nil %>
+                <td> <% if feedback.mood.to_i == 1 %>
+                        :(
+                      <% elsif feedback.mood.to_i == 3 %>
+                        :)
+                      <% else %>
+                        :|
+                    <% end %>
+                </td>
+
             <td><%= feedback.mood_cause %></td>
-                <% else %>
-
-                <% end %>
-            <td><%= feedback.comment %></td>
+            <td><%= feedback.comment%></td>
           </tr>
-        </table>
-
         <% end %>
-
+      </table>
 <% else %>
     <h3> Select a lesson you would like to see feedback on </h3>
 <% end %>

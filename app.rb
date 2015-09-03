@@ -130,10 +130,8 @@ end
 post('/feedback_mood/:id/students/:student_id') do
   @feedback = Feedback.find(params['id'].to_i)
   @student = Student.find(params['student_id'].to_i)
-  curriculum = params['Curriculum']
-  pair = params['Pair']
-  life = params['Life']
-  @feedback.update({mood_cause: [curriculum, pair, life]})
+  @mood_cause = params['mood_cause']
+  @feedback.update({mood_cause: @mood_cause})
   erb(:comment)
 end
 
@@ -145,6 +143,6 @@ patch('/feedback_mood/:id/students/:student_id/comment') do
   @feedback = Feedback.find(params['id'].to_i)
   @student = Student.find(params['student_id'].to_i)
   comment = params['comment']
-  @feedback.update({comment: [comment]})
+  @feedback.update({comment: comment})
   erb(:feedback_final)
 end
