@@ -130,7 +130,8 @@ end
 post('/feedback_mood/:id/students/:student_id') do
   @feedback = Feedback.find(params['id'].to_i)
   @student = Student.find(params['student_id'].to_i)
-  @mood_cause = params['mood_cause']
+  mood_cause_array = params['mood_cause']
+  @mood_cause = mood_cause_array.join(" ")
   @feedback.update({mood_cause: @mood_cause})
   erb(:comment)
 end
