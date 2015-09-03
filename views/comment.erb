@@ -1,26 +1,13 @@
 <h1>Would you like to elaborate?</h1>
 
-
-<a href="/feedback_final" class="btn btn-primary btn-xs">No Thanks!</a>
-
 <br>
-<br>
-<button id="add_comment" class="btn btn-primary btn-lg">Yes!</button>
 <div id="comment">
 </div>
 <br>
-<form action="/feedback_final" method="post">
-  <input type="hidden" name="id" value="<%=@feedback.id%>">
+<form action="/feedback_mood/<%=@feedback.id%>/students/<%=@student.id%>/comment" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input name="comment" type="text">
   <button class="btn btn-primary btn-lg">Submit!</button>
 </form>
-
-
-<script>
-$(document).ready(function(){
-  html_first = '<input type="text" name="comment" class="form-control" ';
-  html_last = '"  placeholer="e.g. Write comment here">';
-  $('#add_comment').click(function(){
-    $("#comment").append(html_first + html_last);
-  });
-});
-</script>
+<br>
+<a href="/feedback_final" class="btn btn-primary btn-xs">No Thanks!</a>

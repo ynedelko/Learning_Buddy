@@ -121,9 +121,15 @@ get('/feedbacks/:id/students/:student_id/happy') do
   erb(:feedback_happy)
 end
 
+get('/feedback_mood/:id/students/:student_id') do
+  @feedback = Feedback.find(params['id'].to_i)
+  @student = Student.find(params['student_id'].to_i)
+  erb(:comment)
+end
+
 post('/feedback_mood/:id/students/:student_id') do
   @feedback = Feedback.find(params['id'].to_i)
-  @student = Student.find(params['id'].to_i)
+  @student = Student.find(params['student_id'].to_i)
   curriculum = params['Curriculum']
   pair = params['Pair']
   life = params['Life']
@@ -135,9 +141,10 @@ get('/feedback_final') do
   erb(:feedback_final)
 end
 
-post('/feedback_final') do
+patch('/feedback_mood/:id/students/:student_id/comment') do
   @feedback = Feedback.find(params['id'].to_i)
+  @student = Student.find(params['student_id'].to_i)
   comment = params['comment']
-  @feedback.update({comment: comment})
+  @feedback.update({comment: [comment]})
   erb(:feedback_final)
 end

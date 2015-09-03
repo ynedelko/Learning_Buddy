@@ -20,10 +20,35 @@
 
 <% if @lesson != nil %>
     <%= @lesson.name %>
+
+    <table style="width:100%">
+      <tr>
+        <th>name</th>
+        <th>pair</th>
+        <th>mood (1:sad - 3:happy)</th>
+        <th>feedback</th>
+        <th>comments</th>
+      </tr>
+
     <% @lesson.feedbacks.each do |feedback| %>
-        <ul>
-            <li><%= feedback.student.name  %><%= feedback.mood %><%= feedback.mood_cause %><%=feedback.comment %></li>
-        </ul>
+
+            <% pair_id = feedback.pair_id.to_i %>
+            <% found_pair = Student.find(pair_id) %>
+            <% @pair = found_pair.name %>
+
+          <tr>
+            <td><%= feedback.student.name  %></td>
+            <td><%= @pair %></td>
+            <td><%= feedback.mood %></td>
+
+                <% if feedback.mood_cause != nil %>
+            <td><%= feedback.mood_cause %></td>
+                <% else %>
+
+                <% end %>
+            <td><%= feedback.comment %></td>
+          </tr>
+        </table>
 
         <% end %>
 
