@@ -1,33 +1,45 @@
-<div class='home-btn'>
-<a href="/" class="btn btn-link">Home</a>
-</div>
 
-<h1>Welcome, Brilliant Epicodus Students!</h1>
 
+<h1>welcome </h1>
+
+<div class="row">
+  <div class="col-md-4">
 <form action="/students" method="post">
-
-  <h3>Please select your name:</h3>
+  <h3>name</h3>
   <select id='student_id' name='student_id' type='text'>
       <% @students.each() do |student| %>
       <option value="<%= student.id()%>"> <%= student.name() %> </option>
       <% end %>
     </select>
+</div>
 
-    <h3>Please select your pair's name</h3>
+  <div class="col-md-4">
+    <h3>pair's name</h3>
     <select id='pair_id' name='pair_id' type='text'>
         <% @students.each() do |student| %>
         <option value="<%= student.id()%>"> <%= student.name() %> </option>
         <% end %>
       </select>
+    </div>
 
-  <h3>Please select the Lesson you want to leave feedback on</h3>
+  <div class="col-md-4">
+  <h3>today's lesson</h3>
   <select id='lesson_id' name='lesson_id' type='text'>
       <% @lessons.each() do |lesson| %>
       <option value="<%= lesson.id()%>"> <%= lesson.name() %> </option>
       <% end %>
     </select>
-    <br>
-    <br>
-    <button name="submit" class= "btn btn-success">Continue</button>
+  </div>
+  <br>
 
+  <div class="btn_students">
+  <center>
+    <button name="submit" class= "btn btn-primary">continue</button>
+</center>
+</div>
 </form>
+</div>
+
+<div class='home-btn'>
+<a href="/" class="btn btn-link">home</a>
+</div>

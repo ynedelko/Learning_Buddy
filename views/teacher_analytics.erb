@@ -36,11 +36,11 @@
             <td><%= @pair %></td>
 
                 <td> <% if feedback.mood.to_i == 1 %>
-                        :(
+                  <img src="/images/sad.jpg" alt="HTML tutorial" style="width:25px;height:25px;">
                       <% elsif feedback.mood.to_i == 3 %>
-                        :)
+                      <img src="/images/happy.jpg" alt="HTML tutorial" style="width:25px;height:25px;">
                       <% else %>
-                        :|
+                      <img src="/images/neutral.jpg" alt="HTML tutorial" style="width:25px;height:25px;">
                     <% end %>
                 </td>
 
@@ -51,7 +51,7 @@
         <% end %>
       </table>
 <% else %>
-    <h3> Select a lesson you would like to see feedback on </h3>
+
 <% end %>
 <br>
 <p>
