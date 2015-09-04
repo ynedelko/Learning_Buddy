@@ -18,7 +18,6 @@ get('/teachers') do
   erb(:teacher_welcome)
 end
 
-
 get('/teacher-admin/') do
     @lessons = Lesson.all
     @students = Student.all
@@ -73,23 +72,18 @@ delete('/lessons/:id') do
     redirect('/teacher-admin/')
 end
 
-###########
 get('/teacher-analytics') do
     @lesson = nil
     @lessons = Lesson.all
-
-
     erb(:teacher_analytics)
 end
 
 post('/analytics/lessons') do
     @lessons = Lesson.all()
     @lesson = Lesson.find(params['lesson_id'].to_i)
-
     erb(:teacher_analytics)
 end
-###########
-# create! if it's not valid it will raise exception
+
 post('/students') do
   @student = Student.find(params['student_id'].to_i)
   pair = Student.find(params['pair_id'].to_i)
@@ -105,14 +99,12 @@ get('/feedbacks/:id/students/:student_id/sad') do
   erb(:feedback_sad)
 end
 
-
 get('/feedbacks/:id/students/:student_id/neutral') do
   @feedback = Feedback.find(params['id'].to_i)
   @student = Student.find(params['student_id'].to_i)
   @feedback.update({mood: 2})
   erb(:feedback_neutral)
 end
-
 
 get('/feedbacks/:id/students/:student_id/happy') do
   @feedback = Feedback.find(params['id'].to_i)
@@ -136,14 +128,14 @@ post('/feedback_mood/:id/students/:student_id') do
   erb(:comment)
 end
 
-get('/feedback_final') do
-  erb(:feedback_final)
-end
-
 patch('/feedback_mood/:id/students/:student_id/comment') do
   @feedback = Feedback.find(params['id'].to_i)
   @student = Student.find(params['student_id'].to_i)
   comment = params['comment']
   @feedback.update({comment: comment})
+  erb(:feedback_final)
+end
+
+get('/feedback_final') do
   erb(:feedback_final)
 end

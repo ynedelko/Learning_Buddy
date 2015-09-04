@@ -1,21 +1,18 @@
 <h1>analytics</h1>
-
 <form action="/analytics/lessons" method="post">
-
-    <h4>select a lesson</h4>
-    <select id='lesson_id' name='lesson_id' type='text'>
-        <% @lessons.each() do |lesson| %>
-        <option value="<%= lesson.id()%>"> <%= lesson.name() %> </option>
-        <% end %>
-      </select>
-      <br>
-      <br>
-      <button name="submit" class= "btn btn-primary btn-lg">see feedback</button>
+  <h4>select a lesson</h4>
+  <select id='lesson_id' name='lesson_id' type='text'>
+    <% @lessons.each() do |lesson| %>
+      <option value="<%= lesson.id()%>"> <%= lesson.name() %> </option>
+    <% end %>
+  </select>
+  <br>
+  <br>
+  <button name="submit" class= "btn btn-primary btn-lg">see feedback</button>
 </form>
 <br>
 <% if @lesson != nil %>
   <h3> <strong><%= @lesson.name %></strong></h3>
-
     <table style="width:100%">
       <tr>
         <th>name</th>
@@ -26,34 +23,29 @@
       </tr>
 
     <% @lesson.feedbacks.each do |feedback| %>
-
-            <% pair_id = feedback.pair_id.to_i %>
-            <% found_pair = Student.find(pair_id) %>
-            <% @pair = found_pair.name %>
+      <% pair_id = feedback.pair_id.to_i %>
+      <% found_pair = Student.find(pair_id) %>
+      <% @pair = found_pair.name %>
 
           <tr>
             <td><%= feedback.student.name  %></td>
             <td><%= @pair %></td>
-
-                <td> <% if feedback.mood.to_i == 1 %>
-                  <img src="/images/sad.jpg" alt="HTML tutorial" style="width:25px;height:25px;">
+                <td><% if feedback.mood.to_i == 1 %>
+                    <img src="/images/sad.jpg" alt="HTML tutorial" style="width:25px;height:25px;">
                       <% elsif feedback.mood.to_i == 3 %>
                       <img src="/images/happy.jpg" alt="HTML tutorial" style="width:25px;height:25px;">
                       <% else %>
                       <img src="/images/neutral.jpg" alt="HTML tutorial" style="width:25px;height:25px;">
                     <% end %>
                 </td>
-
             <td><%= feedback.mood_cause %></td>
-
             <td><%= feedback.comment%></td>
           </tr>
-        <% end %>
-      </table>
-<% else %>
-
+    <% end %>
+    </table>
+  <% else %>
 <% end %>
 <br>
 <p>
-<a href="/" class="btn btn-link">home</a> | <a href='/teacher-admin/' class="btn btn-link">administration</a>
+  <a href="/" class="btn btn-link">home</a> | <a href='/teacher-admin/' class="btn btn-link">administration</a>
 </p>

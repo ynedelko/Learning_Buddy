@@ -1,16 +1,19 @@
 <h1>how are you feeling today, <%= @student.name%>?</h1>
+
 <center>
+
 <div class='smileys'>
-<a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/sad">
-  <img src="/images/sad.jpg" alt="HTML tutorial" style="width:300px;height:300px;">
-</a>
+  <a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/sad">
+    <img src="/images/sad.jpg" alt="sad face" style="width:300px;height:300px;">
+  </a>
 
-<a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/neutral">
-  <img src="/images/neutral.jpg" alt="HTML tutorial" style="width:300px;height:300px;">
-</a>
+  <a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/neutral">
+    <img src="/images/neutral.jpg" alt="neutral face" style="width:300px;height:300px;">
+  </a>
 
-<a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/happy">
-  <img src="/images/happy.jpg" alt="HTML tutorial" style="width:300px;height:300px;">
-</a>
+  <a href="/feedbacks/<%=@feedback.id%>/students/<%=@student.id%>/happy">
+    <img src="/images/happy.jpg" alt="happy face" style="width:300px;height:300px;">
+  </a>
 </div>
+
 </center>

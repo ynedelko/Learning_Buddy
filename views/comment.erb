@@ -4,10 +4,12 @@
 <div id="comment">
 </div>
 <br>
+
 <form action="/feedback_mood/<%=@feedback.id%>/students/<%=@student.id%>/comment" method="post">
   <input name="_method" type="hidden" value="patch">
   <input class="form-control input-lg" name="comment" type="text" id="inputLarge">
   <button class="btn btn-primary">submit</button>
 </form>
+
 <br>
 <a href="/feedback_final" class="btn btn-default btn-xs">no thanks</a>

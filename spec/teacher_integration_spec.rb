@@ -32,8 +32,6 @@ describe("the route a teacher takes", {:type => :feature} ) do
         expect(page).to have_no_content("Yan Polski")
     end
 
-
-
     it("updates a lesson's name") do
         test_lesson = Lesson.create({:name => "Patience"})
         visit("/lessons/#{test_lesson.id()}")

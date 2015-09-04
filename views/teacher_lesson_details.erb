@@ -1,21 +1,21 @@
 <div class="jumbotron">
   <center>
-    <img src="/images/lesson.jpg" style="width:100px;height:100px";>
-<h1><%= @lesson.name %> </h1>
+    <img src="/images/lesson.jpg" alt="lesson" style="width:100px;height:100px";>
+  <h1><%= @lesson.name %> </h1>
 
-<form action="/lessons/<%= @lesson.id %>" method="post">
+  <form action="/lessons/<%= @lesson.id %>" method="post">
     <input name="_method" type="hidden" value="patch">
     <input name="name" type="text">
     <button type="submit" class="btn btn-primary btn-xs">retitle</button>
-</form>
-<br>
-<form action="/lessons/<%= @lesson.id %>" method="post">
+  </form>
+  <br>
+  <form action="/lessons/<%= @lesson.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit" class="btn btn-default btn-lg">delete</button>
-</form>
-<br>
-<p>
-<a href="/" class="btn btn-link">home</a> | <a href='/teacher-admin/' class="btn btn-link">administration</a>
-</p>
-</center>
+  </form>
+  <br>
+  <p>
+    <a href="/" class="btn btn-link">home</a> | <a href='/teacher-admin/' class="btn btn-link">administration</a>
+  </p>
+  </center>
 </div>
